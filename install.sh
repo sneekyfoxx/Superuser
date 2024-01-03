@@ -11,11 +11,9 @@ installer() {
   if [[ -d "$src" ]] && [[ -f "$src/superuser" ]]; then
     if [[ -d "$des" ]]; then
       sudo install -v -m 4754 -t "$des" "$src/superuser";
-      exit 1;
 
     else
       sudo install -v -m 4754 -t "$fallback" "$src/superuser";
-      exit 1;
     fi;
   else
     echo -e "Failed to locate 'superuser' binary.\n";
@@ -24,7 +22,7 @@ installer() {
 };
 
 if [[ "$system" == "Linux" ]] && [[ "$arch" == "x86_64" ]]; then
-  installer;
+  installer && clear && sudo superuser actions;
 else
   echo -e "Platform not supported.\nSystem Requirements:\n - OS: Linux\n - Arch: x86_64\n";
   exit 0;
