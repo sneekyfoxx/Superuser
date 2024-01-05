@@ -9,13 +9,7 @@
 
 # About
 
-**Superuser** is meant to be a *multi-purpose* tool and combines the functionality of *five* fundamental Linux tools, such as:
-
-1. **cat**
-2. **echo**
-3. **find**
-4. **ls**
-5. **touch**
+**Superuser** is meant to be a *multi-purpose* tool and combines the functionality of *five* fundamental Linux tools such as **cat**, **echo**, **find**, **ls**, and **touch**.
 
 Each of tools that are part of **Superuser** are ***custom versions*** of the originals and may not have the same name or function (*exactly*) the same.
 
@@ -25,8 +19,7 @@ Each of tools that are part of **Superuser** are ***custom versions*** of the or
 
 **choosenim**: [nim website](https://nim-lang.org/install_unix.html)
 
-(***Recomended***)
-**choosenim**: [GitHub](https://github.com/dom96/choosenim) 
+**choosenim**: [GitHub](https://github.com/dom96/choosenim) (**Recomended**)
 
 **musl-gcc** : [toolchain](https://musl.cc/) and [wiki](https://wiki.musl-libc.org/getting-started.html).
 
