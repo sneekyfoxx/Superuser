@@ -33,8 +33,8 @@ Each of tools that are part of **Superuser** are ***custom versions*** of the or
 To install **Superuser** follow the instructions below:
 
 ```bash
-$ git clone https://github.com/sneekyfoxx/Superuser ~/ && cd ./Superuser/
-$ nim --gcc.exe:musl-gcc --linker.exe:musl-gcc --passL:-static --threads:on --opt:speed -d:Release --out:superuser compile --run Main.nim
+$ git clone https://github.com/sneekyfoxx/Superuser $HOME && cd $HOME/Superuser/
+$ nim --gcc.exe:musl-gcc --linker.exe:musl-gcc --passL:-static --threads:on --opt:speed -d:Release --out:superuser compile Main.nim
 $ mv ./superuser your/location/of/choice
 $ #make sure the location is on the PATH
 $ #then execute 'superuser actions' or 'superuser usage'
