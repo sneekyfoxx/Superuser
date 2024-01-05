@@ -11,7 +11,7 @@
 
 **Superuser** is meant to be a *multi-purpose* tool and combines the functionality of *five* fundamental Linux tools such as **cat**, **echo**, **find**, **ls**, and **touch**.
 
-Each of tools that are part of **Superuser** are ***custom versions*** of the originals and may not have the same name or function (*exactly*) the same.
+Each tool that is a part of **Superuser** are ***custom versions*** of the originals and may not have the same name or function (*exactly*) the same.
 
 # Installation
 
