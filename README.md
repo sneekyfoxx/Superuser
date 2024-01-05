@@ -37,9 +37,7 @@ $ git clone https://github.com/sneekyfoxx/Superuser ~/ && cd ./Superuser/
 $ nim --gcc.exe:musl-gcc --linker.exe:musl-gcc --passL:-static --threads:on --opt:speed -d:Release --out:superuser compile --run Main.nim
 $ mv ./superuser your/location/of/choice
 $ #make sure the location is on the PATH
-
-$ #superuser actions
-$ #superuser usage
+$ #then execute 'superuser actions' or 'superuser usage'
 ```
 
 **If you find this program useful please consider giving the repository a 🌟**
