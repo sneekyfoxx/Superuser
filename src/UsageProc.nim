@@ -1,14 +1,10 @@
 const
-  red: string = "\e[1;31m"
   green: string = "\e[1;32m"
-  magenta: string = "\e[1;35m"
   cyan: string = "\e[1;36m"
   white: string = "\e[1;97m"
   reset: string = "\e[0m"
 
 proc Usage* {.noReturn.} =
-  stdout.writeLine(red, "\n―――――――――――――――――――――――――――――――――――――――――――", reset, "{", magenta, "superuser", reset, "}", red, "―――――――――――――――――――――――――――――――――――――――――――", reset)
-  stdout.flushFile
 
   stdout.writeLine("\n", cyan, "Command Line Usage", reset, "\n‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾")
   stdout.flushFile
@@ -112,6 +108,4 @@ proc Usage* {.noReturn.} =
   stdout.write(cyan, "write", reset, ":", green, "file", reset, "\n")
   stdout.flushFile
 
-  stdout.writeLine(red, "\n―――――――――――――――――――――――――――――――――――――――――――", reset, "{", magenta, "superuser", reset, "}", red, "―――――――――――――――――――――――――――――――――――――――――――", reset)
-  stdout.flushFile
   quit(0)
