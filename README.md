@@ -42,6 +42,6 @@ After installation, I recommend executing the following commands:
 - **superuser actions**: for information about parameters and arguments
 - **superuser usage**:   for a list of all command-usage patterns
 
-**If you find this program useful please consider giving the repository a 🌟**
+**If you find this program useful please consider giving the repository a ⭐**
 
 **Thank you!**
