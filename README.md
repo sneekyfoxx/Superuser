@@ -27,9 +27,10 @@ As for **Windows**, I'm unsure about how to build the binary using **Nim**, so i
 
 # Installation
 
-To install **Superuser** follow the instructions below:
+**Make sure you've installed the correct musl-gcc toolchain for your system**
 
 ```bash
+$ choosenim update stable
 $ git clone https://github.com/sneekyfoxx/Superuser $HOME && cd $HOME/Superuser/
 $ nim --gcc.exe:musl-gcc --linker.exe:musl-gcc --passL:-static --threads:on --opt:speed -d:Release --out:superuser compile Main.nim
 $ mv ./superuser your/location/of/choice
