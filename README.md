@@ -31,8 +31,8 @@ As for **Windows**, I'm unsure about how to build the binary using **Nim**, so i
 
 ```bash
 $ choosenim update stable
-$ git clone https://github.com/sneekyfoxx/Superuser $HOME && cd $HOME/Superuser/
-$ nim --gcc.exe:musl-gcc --linker.exe:musl-gcc --passL:-static --threads:on --opt:speed -d:Release --out:superuser compile Main.nim
+$ git clone https://github.com/sneekyfoxx/Superuser ~/ && cd ~/Superuser/
+$ nim --gcc.exe:musl-gcc --linker.exe:musl-gcc --passL:-static --threads:on --opt:speed -d:Release --out:superuser compile ./src/Main.nim
 $ mv ./superuser your/location/of/choice
 ```
 
