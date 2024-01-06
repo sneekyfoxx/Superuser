@@ -1,5 +1,5 @@
 import std/[os, strutils, strformat]
-import ReplaceProc
+import ReplaceProc, MarkdownProc
 
 proc sigintHandler() {.noconv.} =
   stdout.writeLine("\u001b[2K")
@@ -19,7 +19,11 @@ proc Open*(Open: string = "", Read: string = "", Write: string = "", Append: str
 
   if Open.len == 0 and Read.len > 0 and Write.len == 0 and Append.len == 0:
     if fileExists(expandTilde(Read)):
-      fileContents = readFile(expandTilde(Read))
+      if Read.endsWith(".md") or Read.endsWith("MARKDOWN"):
+        fileContents = Markdown(expandTilde(Read))
+
+      else:
+        filecontents = readFile(expandTilde(Read))
       stdout.write(ReplaceProc.Replace(fileContents))
       stdout.flushFile
       quit(0)

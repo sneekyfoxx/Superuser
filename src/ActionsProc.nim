@@ -55,7 +55,8 @@ proc Actions* {.noReturn.} =
   stdout.write("{yellow}join the contents of multiple files into{reset} '{green}file1{reset}' {yellow}or{reset} '{cyan}write{reset}:{green}file{reset}'\n".fmt)
   stdout.flushFile
 
-  stdout.writeLine("\n {cyan}limit{reset}:{green}number{reset}\t\t\t {yellow}limit the number of finds to{reset} '{green}number{reset}'\n".fmt)
+  stdout.write("\n {cyan}limit{reset}:{green}number{reset}\t\t\t {yellow}limit the finds to{reset} '{green}number{reset}' ".fmt)
+  stdout.write("({red}must be positive{reset})\n".fmt)
   stdout.flushFile
 
   stdout.write(" {cyan}match{reset}:{green}name{reset}\t\t\t {yellow}match an entry{reset} '{green}name{reset}' ".fmt)
@@ -69,7 +70,7 @@ proc Actions* {.noReturn.} =
   stdout.writeLine("     {green}passive{reset}\t\t\t {yellow}find all paths containing{reset} '{green}name{reset}'".fmt)
   stdout.flushFile
 
-  stdout.writeLine("     {green}strict{reset}\t\t\t {yellow}find all paths ending in{reset} '{green}name{reset}'. ({yellow}Default{reset})\n".fmt)
+  stdout.writeLine("     {green}strict{reset}\t\t\t {yellow}find all paths ending in{reset} '{green}name{reset}'. ({yellow}Default{reset})".fmt)
   stdout.flushFile
 
   stdout.write("\n {cyan}open{reset}:{green}file{reset}\t\t\t {yellow}open the given{reset} '{green}file{reset}' ".fmt)

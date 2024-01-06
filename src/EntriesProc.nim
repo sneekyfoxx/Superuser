@@ -5,16 +5,16 @@ proc sigintHandler() {.noconv.} =
   stdout.flushFile
   quit(0)
 
-const
-  red: string = "\e[1;31m"
-  green: string = "\e[1;32m"
-  yellow: string = "\e[1;33m"
-  blue: string = "\e[1;34m"
-  magenta: string = "\e[1;35m"
-  cyan: string = "\e[1;36m"
-  reset: string = "\e[0m"
-
 proc Entries*(directory: string = "./", match: string = "", Yield: int = 0) {.noReturn.} =
+
+  const
+    red: string = "\e[1;31m"
+    green: string = "\e[1;32m"
+    yellow: string = "\e[1;33m"
+    blue: string = "\e[1;34m"
+    magenta: string = "\e[1;35m"
+    cyan: string = "\e[1;36m"
+    reset: string = "\e[0m"
 
   var
     entries: seq[string]
@@ -53,7 +53,7 @@ proc Entries*(directory: string = "./", match: string = "", Yield: int = 0) {.no
         fileinfo: FileInfo = info[index]
         entry: string = entries[index].split("/")[^1]
 
-      size = "{fileinfo.size.float / 1000:2.1f} KB".fmt
+      size = "{fileinfo.size.float / 1000:2.3f} KB".fmt
 
       str.add([pcFile: '-', 'l', pcDir: 'd', 'l'][fileinfo.kind])
 
