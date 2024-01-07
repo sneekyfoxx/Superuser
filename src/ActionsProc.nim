@@ -59,7 +59,7 @@ proc Actions* {.noReturn.} =
   stdout.write("({red}must be positive{reset})\n".fmt)
   stdout.flushFile
 
-  stdout.write(" {cyan}match{reset}:{green}name{reset}\t\t\t {yellow}match an entry{reset} '{green}name{reset}' ".fmt)
+  stdout.write("\n {cyan}match{reset}:{green}name{reset}\t\t\t {yellow}match an entry{reset} '{green}name{reset}' ".fmt)
   stdout.write("{yellow}when listing directory entries{reset}\n".fmt)
   stdout.flushFile
 
