@@ -147,17 +147,20 @@ proc Find*(name: string = "", use: string = "/", mode: string = "strict", limit:
 
       for value in data:
         var filename: string = value & "\n"
-        stdout.writeLine("\n{yellow}Writing{reset}{blue}{dot}{reset}".fmt)
-        file.write(filename)
+        stdout.writeLine("{yellow}Writing to{reset} '{blue}{Write}{reset}': {blue}{dot}{reset}".fmt)
         cursorUp(1)
         eraseLine()
-        cursorUp(1)
-        sleep(1000)
+        sleep(250)
 
         if dot.len == 20:
           dot = "."
 
-      stdout.writeLine("\n{yellow}Writing{reset}: {green}Done!{reset}".fmt)
+        else:
+          dot &= "."
+
+        file.write(filename)
+
+      stdout.writeLine("{yellow}Writing{reset}: {green}Done!{reset}".fmt)
       cursorUp(2)
       sleep(2000)
       eraseLine()
