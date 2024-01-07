@@ -15,7 +15,7 @@ proc Actions* {.noReturn.} =
   stdout.write("\n", blue, "Author", reset, ": ", magenta, "Rayshawn Levy", reset, "\n")
   stdout.flushFile
 
-  stdout.writeLine("\n{blue}Description{reset}: {yellow}A simple, yet powerful tool in the hands of any user.{reset}\n".fmt)
+  stdout.writeLine("\n{yellow}A simple, yet powerful tool in the hands of any user.{reset}\n".fmt)
   stdout.flushFile
 
   stdout.write("{blue}NOTE{reset}: {yellow}{red}/{reset}{yellow}'s and {reset}{red}\\{reset}".fmt)
