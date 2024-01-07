@@ -11,7 +11,6 @@ proc sigintHandler() {.noconv.} =
 const
   red: string = "\e[1;31m"
   yellow: string = "\e[33m"
-  blue: string = "\e[1;34m"
   reset: string = "\e[0m"
 
 if not isatty(stdin) or not isatty(stdout):
