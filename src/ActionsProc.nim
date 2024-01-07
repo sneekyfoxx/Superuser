@@ -36,7 +36,8 @@ proc Actions* {.noReturn.} =
 
   stdout.write("\n {cyan}echo{reset}:{green}text{reset}\t\t\t {yellow}output{reset} '{green}text{reset}' ".fmt)
   stdout.write("({red}default is{reset} '{green}stdout{reset}')\n".fmt)
-  stdout.write("     {cyan}write{reset}:{green}file{reset}\t\t\t {yellow}write{reset} '{green}text{reset}' {yellow}to file{reset}\n".fmt)
+  stdout.write("     {cyan}write{reset}:{green}text{reset}\t\t\t {yellow}write{reset} '{green}text{reset}' {yellow}to{reset} '{green}file{reset} ".fmt)
+  stdout.write("({red}overwrites file contents{reset})\n".fmt)
   stdout.flushFile()
 
   stdout.write("\n {cyan}entries{reset}[:{green}directory{reset}]\t\t {yellow}list the entries in the specified{reset} ".fmt)
@@ -62,17 +63,19 @@ proc Actions* {.noReturn.} =
   stdout.write("         {green}strict{reset}\t\t\t {yellow}find all paths ending in{reset} '{green}name{reset}'. ({red}default{reset})\n\n".fmt)
   stdout.write("     {cyan}limit{reset}:{green}number{reset}\t\t {yellow}limit the finds to{reset} '{green}number{reset}' ".fmt)
   stdout.write("({red}must be a positive integer{reset})\n\n".fmt)
-  stdout.write("     {cyan}write{reset}:{green}file{reset}\t\t\t {yellow}write results to{reset} '{green}file{reset}\n".fmt)
+  stdout.write("     {cyan}write{reset}:{green}file{reset}\t\t\t {yellow}write results to{reset} '{green}file{reset} ".fmt)
+  stdout.write("({red}overwrites file contents{reset})\n".fmt)
   stdout.flushFile()
 
   stdout.write("\n {cyan}join{reset}:{green}file1{reset},{green}file2{reset}[,{green}...{reset}]\t\t ".fmt)
   stdout.write("{yellow}join the contents of multiple files into{reset} '{green}file1{reset}'\n".fmt)
-  stdout.write("     {cyan}write{reset}:{green}file{reset}\t\t\t {yellow}write all contents to{reset} '{green}file{reset}\n".fmt)
+  stdout.write("     {cyan}write{reset}:{green}file{reset}\t\t\t {yellow}write all contents to{reset} '{green}file{reset} ".fmt)
+  stdout.write("({red}overwrites file contents{reset})\n".fmt)
   stdout.flushFile()
 
   stdout.write("\n {cyan}open{reset}:{green}file{reset}\t\t\t {yellow}open the given{reset} '{green}file{reset}'\n".fmt)
   stdout.write("     {cyan}append{reset}:{green}text{reset}\t\t {yellow}write{reset} '{green}text{reset} {yellow}to the end of '{green}file{reset}'\n\n".fmt)
-  stdout.write("     {cyan}write{reset}:{green}text{reset}\t\t\t {yellow}write{reset} '{green}text{reset}' to{reset} '{green}file{reset} ".fmt)
+  stdout.write("     {cyan}write{reset}:{green}text{reset}\t\t\t {yellow}write{reset} '{green}text{reset}' {yellow}to{reset} '{green}file{reset} ".fmt)
   stdout.write("({red}overwrites file contents{reset})\n".fmt)
   stdout.flushFile()
 
