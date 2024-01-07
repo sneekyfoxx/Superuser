@@ -98,7 +98,7 @@ proc Actions* {.noReturn.} =
   stdout.writeLine("      {green}text{reset}\t\t\t {yellow}data to be collected by{reset} '{cyan}open{reset}:{green}file{reset}'\n".fmt)
   stdout.flushFile
 
-  stdout.writeLine(" {cyan}yield{reset}:{green}miliseconds{reset}\t\t {yellow}show an entry per{reset} '{green}miliseconds{reset}'\n".fmt)
+  stdout.writeLine(" {cyan}yield{reset}:{green}seconds{reset}\t\t {yellow}show an entry per{reset} '{green}seconds{reset}'\n".fmt)
   stdout.flushFile
 
   quit(0)
