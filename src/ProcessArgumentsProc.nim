@@ -647,7 +647,7 @@ proc ProcessArguments*(arguments: seq[string]) {.noReturn.} =
             quit(1)
 
           else:
-            FindProc.Find(name = splitted[1], use = splitted2[1], mode = splitted[1], limit = limit, Write = splitted5[1])
+            FindProc.Find(name = splitted[1], use = splitted2[1], mode = splitted3[1], limit = limit, Write = splitted5[1])
 
         except ValueError:
           ActionsProc.Actions()
