@@ -48,7 +48,7 @@ proc ProcessArguments*(arguments: seq[string]) {.noReturn.} =
       else:
         EchoProc.Echo(text = splitted[1])
 
-    elif arguments[0].startsWith("entries:"):
+    elif arguments[0] == "entries"or arguments[0].startsWith("entries:"):
       let colons: int = arguments[0].count(":")
 
       if colons == 0:
