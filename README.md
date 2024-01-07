@@ -38,6 +38,8 @@ $ mv ./superuser your/location/of/choice
 
 When moving the binary file, make sure the chosen location is on your **PATH**.
 
+You can also use **upx** or any other binary compression program to reduce the file size.
+
 After installation, I recommend executing the following commands:
 - **superuser actions**: for information about parameters and arguments
 - **superuser usage**:   for a list of all command-usage patterns
