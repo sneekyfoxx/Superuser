@@ -4,7 +4,7 @@ const
   white: string = "\e[1;97m"
   reset: string = "\e[0m"
 
-proc Usage* {.noReturn.} =
+proc usage* {.noreturn.} =
 
   stdout.writeLine("\n", cyan, "Command Line Usage", reset, "\n‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾")
   stdout.flushFile

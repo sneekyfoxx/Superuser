@@ -5,7 +5,7 @@ proc sigintHandler() {.noconv.} =
   stdout.flushFile
   quit(0)
 
-proc Entries*(directory: string = "./", match: string = "", Yield: int = 0) {.noReturn.} =
+proc entries*(directory: string = "./", match: string = "", rate: int = 0) {.noreturn.} =
 
   const
     red: string = "\e[1;31m"
@@ -190,8 +190,8 @@ proc Entries*(directory: string = "./", match: string = "", Yield: int = 0) {.no
       stdout.flushFile
       stream = ""
 
-      if Yield >= 0:
-        sleep(Yield)
+      if rate >= 0:
+        sleep(rate)
 
       str = ""
       index.inc()

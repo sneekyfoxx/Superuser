@@ -11,7 +11,7 @@ const
   reset: string = "\e[0m"
 
 
-proc Actions* {.noReturn.} =
+proc actions* {.noreturn.} =
 
   const banner: string = """
 ███████╗██╗   ██╗██████╗ ███████╗██████╗ ██╗   ██╗███████╗███████╗██████╗ 

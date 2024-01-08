@@ -13,7 +13,7 @@ const
   cyan: string = "\e[1;36m"
   reset: string = "\e[0m"
 
-proc EntryCount*(directory: string = getCurrentDir()) {.noReturn.} =
+proc entryCount*(directory: string = getCurrentDir()) {.noreturn.} =
   var
     totalcounter: int = 0
     filecounter: int = 0

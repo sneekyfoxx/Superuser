@@ -6,8 +6,8 @@ proc sigintHandler() {.noconv.} =
   stdout.flushFile
   quit(0)
 
-proc main {.noReturn.} =
-  ProcessArgumentsProc.ProcessArguments(commandLineParams())
+proc main {.noreturn.} =
+  ProcessArgumentsProc.processArguments(commandLineParams())
 
 setControlCHook(sigintHandler)
 main()

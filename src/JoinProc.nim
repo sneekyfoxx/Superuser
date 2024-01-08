@@ -11,12 +11,12 @@ const
   yellow: string = "\e[1;33m"
   reset: string = "\e[0m"
 
-proc Join*(files: seq[string], Write: string = "") {.noReturn.} =
+proc join*(files: seq[string], outfile: string = "") {.noreturn.} =
   var
     contents: string
     newfile: File
 
-  if files.len > 0 and Write.len == 0:
+  if files.len > 0 and outfile.len == 0:
     for f in files:
       if fileExists(expandTilde(f)):
         contents &= readFile(expandTilde(f))
@@ -32,7 +32,7 @@ proc Join*(files: seq[string], Write: string = "") {.noReturn.} =
     newfile.close()
     quit(0)
 
-  elif files.len > 0 and Write.len > 0:
+  elif files.len > 0 and outfile.len > 0:
     for f in files:
       if fileExists(expandTilde(f)):
         contents &= readFile(expandTilde(f))
@@ -43,11 +43,11 @@ proc Join*(files: seq[string], Write: string = "") {.noReturn.} =
         discard f
         quit(1)
 
-    if fileExists(expandTilde(Write)):
-      newfile = open(expandTilde(Write), fmAppend)
+    if fileExists(expandTilde(outfile)):
+      newfile = open(expandTilde(outfile), fmAppend)
 
     else:
-      newfile = open(expandTilde(Write), fmWrite)
+      newfile = open(expandTilde(outfile), fmWrite)
 
     newfile.write(contents)
     newfile.close()

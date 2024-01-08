@@ -14,7 +14,7 @@ const
   cyan: string = "\e[1;36m"
   reset: string = "\e[0m"
 
-proc Find*(name: string = "", use: string = "/", mode: string = "strict", limit: int = 0, Write: string = "") {.noReturn.} =
+proc find*(name: string = "", use: string = "/", mode: string = "strict", limit: int = 0, outfile: string = "") {.noreturn.} =
   var
     dirsFound: seq[string]
     filesFound: seq[string]
@@ -70,7 +70,7 @@ proc Find*(name: string = "", use: string = "/", mode: string = "strict", limit:
           counter.inc()
           dirsFound.add(entry & "/")
 
-          if Write.len == 0:
+          if outfile.len == 0:
             stdout.writeLine("<", blue, "Folder", reset, "> ", green, "Path", reset, ": ", blue, entry & "/", reset, "\n")
             stdout.flushFile
 
@@ -82,7 +82,7 @@ proc Find*(name: string = "", use: string = "/", mode: string = "strict", limit:
           counter.inc()
           dirsFound.add(entry & "/")
 
-          if Write.len == 0:
+          if outfile.len == 0:
             stdout.writeLine("<", blue, "Symlink->Folder", reset, "> ", green, "Path", reset, ": ", blue, entry & "/", reset, "\n")
             stdout.flushFile
 
@@ -94,7 +94,7 @@ proc Find*(name: string = "", use: string = "/", mode: string = "strict", limit:
           counter.inc()
           filesFound.add(entry)
 
-          if Write.len == 0:
+          if outfile.len == 0:
             stdout.writeLine("<", blue, "File", reset, "> ", green, "Path", reset, ": ", blue, entry, reset, "\n")
             stdout.flushFile
 
@@ -106,7 +106,7 @@ proc Find*(name: string = "", use: string = "/", mode: string = "strict", limit:
           counter.inc()
           filesFound.add(entry)
 
-          if Write.len == 0:
+          if outfile.len == 0:
             stdout.writeLine("<", blue, "Symlink->File", reset, "> ", green, "Path", reset, ": ", blue, entry, reset, "\n")
             stdout.flushFile
 
@@ -123,7 +123,7 @@ proc Find*(name: string = "", use: string = "/", mode: string = "strict", limit:
 
   var found: string = intToStr(dirsFound.len + filesFound.len)
 
-  if Write.len == 0:
+  if outfile.len == 0:
     sleep(2000)
     eraseLine()
     stdout.writeLine("\n{green}Found{reset} {cyan}{found}{reset} paths in {green}{searchEndTime}{reset} seconds".fmt)
@@ -133,11 +133,11 @@ proc Find*(name: string = "", use: string = "/", mode: string = "strict", limit:
   
   else:
     sleep(1000)
-    if fileExists(expandTilde("./"&Write)):
-      file = open(expandTilde("./"&Write), fmAppend)
+    if fileExists(expandTilde("./"&outfile)):
+      file = open(expandTilde("./"&outfile), fmAppend)
 
     else:
-      file = open(expandTilde("./"&Write), fmAppend)
+      file = open(expandTilde("./"&outfile), fmAppend)
 
     if parseInt(found) > 0:
       let data: seq[string] = dirsFound & filesFound
@@ -147,7 +147,7 @@ proc Find*(name: string = "", use: string = "/", mode: string = "strict", limit:
 
       for value in data:
         var filename: string = value & "\n"
-        stdout.writeLine("{yellow}Writing to{reset} '{blue}{Write}{reset}': {blue}{dot}{reset}".fmt)
+        stdout.writeLine("{yellow}Writing to{reset} '{blue}{outfile}{reset}': {blue}{dot}{reset}".fmt)
         cursorUp(1)
         eraseLine()
         sleep(250)
@@ -167,14 +167,14 @@ proc Find*(name: string = "", use: string = "/", mode: string = "strict", limit:
       file.close()
 
       writeEndTime = "{cpuTime() - writeStartTime:.2f}".fmt
-      stdout.writeLine("\n{green}Wrote{reset} {cyan}{found}{reset} paths to '{yellow}{Write}{reset}' in {green}{writeEndTime}{reset} seconds".fmt)
+      stdout.writeLine("\n{green}Wrote{reset} {cyan}{found}{reset} paths to '{yellow}{outfile}{reset}' in {green}{writeEndTime}{reset} seconds".fmt)
       stdout.flushFile()
       showCursor()
       quit(1)
 
     else:
       writeEndTime = "{cpuTime() - writeStartTime:.2f}".fmt
-      stdout.writeLine("\n{green}Wrote{reset} {cyan}{found}{reset} paths to '{yellow}{Write}{reset}' in {green}{writeEndTime}{reset} seconds".fmt)
+      stdout.writeLine("\n{green}Wrote{reset} {cyan}{found}{reset} paths to '{yellow}{outfile}{reset}' in {green}{writeEndTime}{reset} seconds".fmt)
       stdout.flushFile()
       showCursor()
       quit(0)

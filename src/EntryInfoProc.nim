@@ -13,7 +13,7 @@ const
   cyan: string = "\e[1;36m"
   reset: string = "\e[0m"
 
-proc EntryInfo*(entry: string) {.noReturn.} =
+proc entryInfo*(entry: string) {.noreturn.} =
   var
     info: FileInfo
     str: string

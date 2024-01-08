@@ -13,29 +13,29 @@ const
   cyan: string = "\e[1;36m"
   reset: string = "\e[0m"
 
-proc Echo*(text: string = "", Write: string = "") {.noReturn.} =
+proc echo*(text: string = "", write: string = "") {.noreturn.} =
   var newfile: File
 
-  if text.len >= 1 and Write.len == 0:
-    stdout.write(ReplaceProc.Replace(text))
+  if text.len >= 1 and write.len == 0:
+    stdout.write(ReplaceProc.replace(text))
     stdout.flushFile
     quit(0)
 
-  elif text.len > 0 and Write.len > 0:
-    if Write.endsWith("stdin"):
-      stderr.write("\n{red}ERROR{reset}: {yellow}cannot open file{reset} '{green}{Write}{reset}'".fmt)
+  elif text.len > 0 and write.len > 0:
+    if write.endsWith("stdin"):
+      stderr.write("\n{red}ERROR{reset}: {yellow}cannot open file{reset} '{green}{write}{reset}'".fmt)
       stderr.flushFile
       quit(1)
 
-    elif fileExists(expandTilde(Write)):
-      newfile = open(expandTilde(Write), fmAppend)
-      newfile.write(ReplaceProc.Replace(text))
+    elif fileExists(expandTilde(write)):
+      newfile = open(expandTilde(write), fmAppend)
+      newfile.write(ReplaceProc.replace(text))
       newfile.close()
       quit(0)
 
     else:
-      newfile = open(expandTilde(Write), fmWrite)
-      newfile.write(ReplaceProc.Replace(text))
+      newfile = open(expandTilde(write), fmwrite)
+      newfile.write(ReplaceProc.replace(text))
       newfile.close()
       quit(0)
 
