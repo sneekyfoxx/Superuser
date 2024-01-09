@@ -25,7 +25,7 @@ As for **Windows**, I'm unsure about how to build the binary using **Nim**, so i
 
 **musl-gcc** : [toolchain](https://musl.cc/) and [wiki](https://wiki.musl-libc.org/getting-started.html).
 
-# Installation
+# Manual Installation
 
 **Make sure you've installed the correct musl-gcc toolchain for your system**
 
@@ -39,6 +39,14 @@ $ mv ./superuser your/location/of/choice
 When moving the binary file, make sure the chosen location is on your **PATH**.
 
 You can also use **upx** or any other binary compression program to reduce the file size.
+
+# Using The Build Script
+
+```
+$ choosenim update stable
+$ git clone https://github.com/sneekyfoxx/Superuser ~/ && cd ~/Superuser
+$ ./build.sh -c -b -s -i
+```
 
 After installation, I recommend executing the following commands:
 - **superuser actions**: for information about parameters and arguments
