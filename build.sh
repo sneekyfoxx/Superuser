@@ -237,7 +237,7 @@ __main() {
   local hasmusl=0;
 
   if [ "$system" == "Linux" ] && [ "$arch" == "x86_64" ]; then
-    if ( which nim ); then
+    if ( which nim &>/dev/null ); then
       hasnim=1;
 
     else
@@ -245,7 +245,7 @@ __main() {
       return 1;
     fi;
 
-    if ( which musl-gcc ); then
+    if ( which musl-gcc &>/dev/null ); then
       hasmusl=1;
 
     else
