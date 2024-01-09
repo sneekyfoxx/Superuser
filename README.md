@@ -21,17 +21,19 @@ As for **Windows**, I'm unsure about how to build the binary using **Nim**, so i
 
 # Requirements
 
-#### choosenim
+## choosenim
 
 **website**: [https://nim-lang.org/install_unix.html](https://nim-lang.org/install_unix.html)
+
 **github**: (*Recommended*) [https://github.com/dom96/choosenim](https://github.com/dom96/choosenim)
 
-#### musl-gcc
+## musl-gcc
 
 **website**: [https://musl.cc/](https://musl.cc/)
+
 **wiki**: [https://wiki.musl-libc.org/getting-started.html](https://wiki.musl-libc.org/getting-started.html).
 
-#### upx compression utility
+## upx compression utility
 
 Install using your system package manager.
 
@@ -40,6 +42,7 @@ Install using your system package manager.
 **Make sure you've installed the correct musl-gcc toolchain for your system**
 
 ```bash
+$ choosenim update stable
 $ git clone https://github.com/sneekyfoxx/Superuser ~/ && cd ~/Superuser/
 $ nim --gcc.exe:musl-gcc --linker.exe:musl-gcc --passL:-static --threads:on --opt:speed -d:Release --out:superuser compile ./src/Main.nim
 $ mv ./superuser your/location/of/choice
@@ -52,6 +55,7 @@ You can also use **upx** or any other binary compression program to reduce the f
 # Using The Build Script
 
 ```
+$ choosenim update stable
 $ git clone https://github.com/sneekyfoxx/Superuser ~/ && cd ~/Superuser
 $ ./build.sh -c -b -s -i
 ```
