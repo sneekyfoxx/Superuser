@@ -230,11 +230,29 @@ __process_arguments() {
 };
 
 __main() {
+  local args="$@";
   local system="$(uname -s)";
   local arch="$(uname -m)";
-  local args="$@";
+  local hasnim=0;
+  local hasmusl=0;
 
   if [ "$system" == "Linux" ] && [ "$arch" == "x86_64" ]; then
+    if ( which nim ); then
+      hasnim=1;
+
+    else
+      echo -e "\e[1;31m'nim' must be installed\e[0m";
+      return 1;
+    fi;
+
+    if ( which musl-gcc ); then
+      hasmusl=1;
+
+    else
+      echo -e "\e[1;31m'musl-gcc' must be installed\e[0m";
+      return 1;
+    fi;
+    
     __process_arguments $args;
 
   else
