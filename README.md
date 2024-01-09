@@ -33,7 +33,7 @@ As for **Windows**, I'm unsure about how to build the binary using **Nim**, so i
 
 **wiki**: [https://wiki.musl-libc.org/getting-started.html](https://wiki.musl-libc.org/getting-started.html).
 
-## upx compression utility
+## upx compression utility (*optional*)
 
 Install using your system package manager.
 
