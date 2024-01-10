@@ -50,6 +50,8 @@ proc count*(directory: string = getCurrentDir()) {.noreturn.} =
     
     totalcounter.inc()
 
+  cursorUp(1)
+  eraseLine()
   stdout.write("\n{blue}Entry Count{reset} {yellow}for{reset} '{green}{directory}{reset}':\n".fmt & "‾".repeat(18 + directory.len))
   stdout.write("\n {red}Files{reset}: {green}{intToStr(filecounter + filelinkcounter)}{reset}".fmt)
   stdout.write("\n {red}Directories{reset}: {green}{intToStr(dircounter + dirlinkcounter)}{reset}".fmt)
