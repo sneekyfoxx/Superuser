@@ -1,5 +1,5 @@
 import std/os
-import ProcessArgumentsProc
+import ArgumentsProc
 
 proc sigintHandler() {.noconv.} =
   stdout.writeLine("\u001b[2K")
@@ -7,7 +7,7 @@ proc sigintHandler() {.noconv.} =
   quit(0)
 
 proc main {.noreturn.} =
-  ProcessArgumentsProc.processArguments(commandLineParams())
+  ArgumentsProc.arguments(commandLineParams())
 
 setControlCHook(sigintHandler)
 main()
