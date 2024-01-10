@@ -16,8 +16,6 @@ const
   reset: string = "\e[0m"
 
 if not isatty(stdin) and not isatty(stdout):
-  stderr.writeLine("\n{yellow}Use{reset} '{cyan}pipe{reset}:{green}file{reset}'\n".fmt)
-  stderr.flushFile
   quit(1)
 
 proc arguments*(args: seq[string]) {.noreturn.} =
