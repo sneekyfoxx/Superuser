@@ -1,7 +1,5 @@
-import std/[strutils, strformat, terminal]
+import strutils, strformat
 import ActionsProc, EchoProc, ListProc, CountProc, InfoProc, SearchProc, JoinProc, OpenProc, UsageProc
-
-# Start @ Line: 208
 
 proc sigintHandler() {.noconv.} =
   stdout.writeLine("\u001b[2K")
@@ -10,13 +8,8 @@ proc sigintHandler() {.noconv.} =
 
 const
   red: string = "\e[1;31m"
-  green: string = "\e[1;32m"
   yellow: string = "\e[33m"
-  cyan: string = "\e[1;36m"
   reset: string = "\e[0m"
-
-if not isatty(stdin) and not isatty(stdout):
-  quit(1)
 
 proc arguments*(args: seq[string]) {.noreturn.} =
   var
@@ -27,7 +20,6 @@ proc arguments*(args: seq[string]) {.noreturn.} =
     splitted5: seq[string] = @[]
     files: seq[string] = @[]
     limit: int = 0
-    colons: int = 0 
 
   if args.len == 0:
     quit(0)

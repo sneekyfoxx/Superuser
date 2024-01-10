@@ -1,4 +1,4 @@
-import std/[os, strformat]
+import os, strformat
 
 proc sigintHandler() {.noconv.} =
   stdout.writeLine("\u001b[2K")

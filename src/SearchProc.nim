@@ -1,4 +1,4 @@
-import std/[os, strutils, strformat, times, terminal]
+import os, strutils, strformat, times, terminal
 
 proc sigintHandler() {.noconv.} =
   stdout.writeLine("\u001b[2K")

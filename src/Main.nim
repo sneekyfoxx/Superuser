@@ -1,4 +1,4 @@
-import std/os
+import os, terminal
 import ArgumentsProc
 
 proc sigintHandler() {.noconv.} =
@@ -7,7 +7,12 @@ proc sigintHandler() {.noconv.} =
   quit(0)
 
 proc main {.noreturn.} =
-  ArgumentsProc.arguments(commandLineParams())
+
+  if isatty(stdin) and isatty(stdout):
+     ArgumentsProc.arguments(commandLineParams())
+
+  else:
+    quit(1)
 
 setControlCHook(sigintHandler)
 main()

@@ -1,4 +1,4 @@
-import std/strformat
+import strformat, terminal
 
 const
   red: string = "\e[1;31m"
@@ -21,6 +21,7 @@ proc actions* {.noreturn.} =
 ███████║╚██████╔╝██║     ███████╗██║  ██║╚██████╔╝███████║███████╗██║  ██║
 ╚══════╝ ╚═════╝ ╚═╝     ╚══════╝╚═╝  ╚═╝ ╚═════╝ ╚══════╝╚══════╝╚═╝  ╚═╝
   """
+
 
   stdout.write("\n{white}{banner}{reset}".fmt)
   stdout.flushFile()

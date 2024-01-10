@@ -1,4 +1,4 @@
-import std/[os, strutils, strformat]
+import os, strutils, strformat
 import ReplaceProc
 
 proc sigintHandler() {.noconv.} =

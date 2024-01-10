@@ -1,4 +1,4 @@
-import std/[os, strutils, strformat]
+import os, strutils, strformat
 
 proc sigintHandler() {.noconv.} =
   stdout.writeLine("\u001b[2K")
@@ -18,7 +18,6 @@ proc info*(entry: string) {.noreturn.} =
     info: FileInfo
     str: string
     size: string
-    tmp: seq[string]
 
   try:
     info = getFileInfo(expandTilde(entry), followSymlink = false)
