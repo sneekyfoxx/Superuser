@@ -7,6 +7,9 @@
     
                     🔋🔧 A simple, yet powerful tool in the hands of any user
 
+
+https://github.com/sneekyfoxx/Superuser/assets/100389302/cf0d6753-b3ab-4998-82ce-49d156ac7895
+
 # About
 
 **Superuser** is meant to be a *multi-purpose* tool and combines the functionality of *five* fundamental Linux tools such as **cat**, **echo**, **find**, **ls**, and **touch**.
