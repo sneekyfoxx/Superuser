@@ -1,5 +1,12 @@
 #!/usr/bin/env bash
 
+# help menu for build.sh
+__help() {
+  echo "Usage: build [-c]";
+  echo -e "\n-c      compress superuser binary using upx utility";
+  exit 0;
+};
+
 # check each source file for errors
 __check() {
   # current working directory
@@ -160,6 +167,7 @@ __install() {
 };
 
 __main() {
+  local arg="$1";
   local system="$(uname -s)";
   local arch="$(uname -m)";
   local hasnim=0;
@@ -183,20 +191,21 @@ __main() {
     fi;
 
     if [ $# -eq 0 ]; then
-      [[ __check ]] && [[ __build ]] && [[ __install ]];
+      __check && __build && __install;
     
-    elif [ $# -eq 1 ] && [ "$1" == "-h" ]; then
-      echo "Usage: build [-c]";
-      echo -e "\n-c      compress superuser binary using upx utility";
-      exit 0;
+    elif [ $# -eq 1 ]; then
+      if [ "$arg" == "-h" ]; then
+        __help;
     
-    elif [ $# -eq 1 ] && [ "$1" == "-c" ]; then
-      [[ __check ]] && [[ __build ]] && [[ __compress ]] && [[ __install ]];
+      elif [ "$arg" == "-c" ]; then
+        __check && __build && __compress && __install;
+
+      else
+        __help;
+      fi;
 
     else
-      echo "Usage: build [-c]";
-      echo -e "\n-c      compress superuser binary using upx utility";
-      exit 0;
+      __help;
     fi;
     
   else
