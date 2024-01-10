@@ -61,6 +61,7 @@ You can also use **upx** or any other binary compression program to reduce the f
 ```
 $ choosenim update stable
 $ git clone https://github.com/sneekyfoxx/Superuser ~/ && cd ~/Superuser
+$ mkdir ./bin/
 $ ./build.sh
 ```
 
@@ -69,6 +70,7 @@ $ ./build.sh
 ```
 $ choosenim update stable
 $ git clone https://github.com/sneekyfoxx/Superuser ~/ && cd ~/Superuser
+$ mkdir ./bin/
 $ ./build.sh -c
 ```
 
