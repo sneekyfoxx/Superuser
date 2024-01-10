@@ -1,4 +1,4 @@
-import strformat, terminal
+import strformat
 
 const
   red: string = "\e[1;31m"
