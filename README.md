@@ -37,7 +37,9 @@ As for **Windows**, I'm unsure about how to build the binary using **Nim**, so i
 
 Install using your system package manager.
 
-# Manual Installation
+# Installation
+
+## Manual
 
 **Make sure you've installed the correct musl-gcc toolchain for your system**
 
@@ -52,12 +54,22 @@ When moving the binary file, make sure the chosen location is on your **PATH**.
 
 You can also use **upx** or any other binary compression program to reduce the file size.
 
-# Using The Build Script
+## Build Script
+
+**Without Compression**
 
 ```
 $ choosenim update stable
 $ git clone https://github.com/sneekyfoxx/Superuser ~/ && cd ~/Superuser
-$ ./build.sh -c -b -s -i
+$ ./build.sh
+```
+
+**With Compression** (*upx*)
+
+```
+$ choosenim update stable
+$ git clone https://github.com/sneekyfoxx/Superuser ~/ && cd ~/Superuser
+$ ./build.sh -c
 ```
 
 After installation, I recommend executing the following commands:
