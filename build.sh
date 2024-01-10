@@ -2,8 +2,9 @@
 
 # help menu for build.sh
 __help() {
-  echo "Usage: build [-c]";
-  echo -e "\n-c      compress superuser binary using upx utility";
+  echo "Usage: build [-c] [--check-only]";
+  echo -e "\n-c               compress superuser binary using upx utility";
+  echo -e "\n--check-only     perform checks on source code";
   exit 0;
 };
 
@@ -21,9 +22,10 @@ __check() {
   if [ ! -d "$current_dir/src/" ]; then
     echo -e "\n\e[1;31mNo directory named\e[0m\e[1;37m'src'\e[0m";
     return 1;
-  fi;
 
-  echo -e "\e[1;32mChecking...\e[0m";
+  else
+    echo -e "\n\e[1;32mChecking...\e[0m";
+  fi;
 
   if ( nim $arg4 ); then
     if ( cd ./src/ && rm Main ); then
@@ -196,6 +198,9 @@ __main() {
     elif [ $# -eq 1 ]; then
       if [ "$arg" == "-h" ]; then
         __help;
+
+      elif [ "$arg" == "--check-only" ]; then
+        __check;
     
       elif [ "$arg" == "-c" ]; then
         __check && __build && __compress && __install;
