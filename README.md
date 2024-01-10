@@ -7,7 +7,7 @@
     
                     🔋🔧 A simple, yet powerful tool in the hands of any user      
 
-https://github.com/sneekyfoxx/Superuser/assets/100389302/2b91699a-5713-4cfd-9292-82b714b84dc2
+![superuser](https://github.com/sneekyfoxx/Superuser/assets/100389302/906a8e9d-4bc3-49fe-a93b-30022a11287e)
 
 # About
 
