@@ -112,14 +112,10 @@ proc search*(path: string = "/", name: string = "", mode: string = "strict", lim
       continue
 
   searchEndTime = "{cpuTime() - searchStartTime:.2f}".fmt
-  eraseLine()
-  stdout.styledWriteLine("{yellow}Searching{reset}: {green}Done!{reset}".fmt)
-  cursorUp(1)
 
   var found: string = intToStr(dirsFound.len + filesFound.len)
 
   if outfile.len == 0:
-    sleep(2000)
     eraseLine()
     stdout.writeLine("\n{green}Found{reset} {cyan}{found}{reset} paths in {green}{searchEndTime}{reset} seconds".fmt)
     stdout.flushFile()
@@ -127,7 +123,6 @@ proc search*(path: string = "/", name: string = "", mode: string = "strict", lim
     quit(0)
   
   else:
-    sleep(1000)
     if fileExists(expandTilde("./"&outfile)):
       file = open(expandTilde("./"&outfile), fmAppend)
 
@@ -145,7 +140,6 @@ proc search*(path: string = "/", name: string = "", mode: string = "strict", lim
         stdout.writeLine("{yellow}Writing to{reset} '{blue}{outfile}{reset}': {blue}{dot}{reset}".fmt)
         cursorUp(1)
         eraseLine()
-        sleep(250)
 
         if dot.len == 20:
           dot = "."
@@ -154,11 +148,6 @@ proc search*(path: string = "/", name: string = "", mode: string = "strict", lim
           dot &= "."
 
         file.write(filename)
-
-      stdout.writeLine("{yellow}Writing{reset}: {green}Done!{reset}".fmt)
-      cursorUp(2)
-      sleep(2000)
-      eraseLine()
       file.close()
 
       writeEndTime = "{cpuTime() - writeStartTime:.2f}".fmt
