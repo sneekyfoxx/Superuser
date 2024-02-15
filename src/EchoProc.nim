@@ -1,8 +1,8 @@
-import os, strutils, strformat
+import os, strutils, strformat, terminal
 import ReplaceProc
 
 proc sigintHandler() {.noconv.} =
-  stdout.writeLine("\u001b[2K")
+  showCursor()
   stdout.flushFile
   quit(0)
 

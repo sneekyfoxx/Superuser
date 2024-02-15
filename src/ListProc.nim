@@ -1,7 +1,7 @@
-import os, posix_utils, strutils, strformat, algorithm
+import os, posix_utils, strutils, strformat, algorithm, terminal
 
 proc sigintHandler() {.noconv.} =
-  stdout.writeLine("\u001b[2K")
+  showCursor()
   stdout.flushFile
   quit(0)
 

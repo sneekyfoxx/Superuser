@@ -2,7 +2,7 @@ import os, terminal
 import ArgumentsProc
 
 proc sigintHandler() {.noconv.} =
-  stdout.writeLine("\u001b[2K")
+  showCursor()
   stdout.flushFile
   quit(0)
 

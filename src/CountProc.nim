@@ -1,7 +1,7 @@
 import os, strutils, strformat, terminal
 
 proc sigintHandler() {.noconv.} =
-  stdout.writeLine("\u001b[2K")
+  showCursor()
   stdout.flushFile
   quit(0)
 

@@ -1,8 +1,8 @@
-import strutils, strformat
+import strutils, strformat, terminal
 import ActionsProc, EchoProc, ListProc, CountProc, InfoProc, SearchProc, JoinProc, OpenProc, UsageProc
 
 proc sigintHandler() {.noconv.} =
-  stdout.writeLine("\u001b[2K")
+  showCursor()
   stdout.flushFile
   quit(0)
 
@@ -189,7 +189,7 @@ proc arguments*(args: seq[string]) {.noreturn.} =
           else:
             ActionsProc.actions()
 
-    elif args[0] == "search" and args[1].startsWith("name:"):
+    elif args[0] == "search" and args[1].startsWith("match:"):
       splitted = args[1].split(":")
 
       if splitted.len < 2 or splitted.len > 2:
@@ -198,7 +198,7 @@ proc arguments*(args: seq[string]) {.noreturn.} =
       else:
         SearchProc.search(name = splitted[1])
 
-    elif args[0].startsWith("search:") and args[1].startsWith("name:"):
+    elif args[0].startsWith("search:") and args[1].startsWith("match:"):
       splitted = args[0].split(":")
       splitted2 = args[1].split(":")
 
@@ -270,7 +270,7 @@ proc arguments*(args: seq[string]) {.noreturn.} =
       ActionsProc.actions()
 
   elif args.len == 3:
-    if args[0] == "search" and args[1].startsWith("name:") and args[2].startsWith("limit:"):
+    if args[0] == "search" and args[1].startsWith("match:") and args[2].startsWith("limit:"):
       splitted = args[1].split(":")
       splitted2 = args[2].split(":")
 
@@ -295,7 +295,7 @@ proc arguments*(args: seq[string]) {.noreturn.} =
         except ValueError:
           ActionsProc.actions()
 
-    elif args[0] == "search" and args[1].startsWith("name:") and args[2].startsWith("mode:"):
+    elif args[0] == "search" and args[1].startsWith("match:") and args[2].startsWith("mode:"):
       splitted = args[1].split(":")
       splitted2 = args[2].split(":")
 
@@ -312,7 +312,7 @@ proc arguments*(args: seq[string]) {.noreturn.} =
       else:
         SearchProc.search(name = splitted[1], mode = splitted2[1])
 
-    elif args[0] == "search" and args[1].startsWith("name:") and args[2].startsWith("write:"):
+    elif args[0] == "search" and args[1].startsWith("match:") and args[2].startsWith("write:"):
       splitted = args[1].split(":")
       splitted2 = args[2].split(":")
 
@@ -326,7 +326,7 @@ proc arguments*(args: seq[string]) {.noreturn.} =
         SearchProc.search(name = splitted[1], outfile = splitted2[1])
 
 
-    elif args[0].startsWith("search:") and args[1].startsWith("name:") and args[2].startsWith("limit:"):
+    elif args[0].startsWith("search:") and args[1].startsWith("match:") and args[2].startsWith("limit:"):
       splitted = args[0].split(":")
       splitted2 = args[1].split(":")
       splitted3 = args[2].split(":")
@@ -355,7 +355,7 @@ proc arguments*(args: seq[string]) {.noreturn.} =
         except ValueError:
           ActionsProc.actions()
 
-    elif args[0].startsWith("search:") and args[1].startsWith("name:") and args[2].startsWith("mode:"):
+    elif args[0].startsWith("search:") and args[1].startsWith("match:") and args[2].startsWith("mode:"):
       splitted = args[0].split(":")
       splitted2 = args[1].split(":")
       splitted3 = args[2].split(":")
@@ -376,7 +376,7 @@ proc arguments*(args: seq[string]) {.noreturn.} =
       else:
         SearchProc.search(path = splitted[1], name = splitted2[1], mode = splitted3[1])
 
-    elif args[0].startsWith("search:") and args[1].startsWith("name:") and args[2].startsWith("write:"):
+    elif args[0].startsWith("search:") and args[1].startsWith("match:") and args[2].startsWith("write:"):
       splitted = args[0].split(":")
       splitted2 = args[1].split(":")
       splitted3 = args[2].split(":")
@@ -397,7 +397,7 @@ proc arguments*(args: seq[string]) {.noreturn.} =
       ActionsProc.actions()
 
   elif args.len == 4:
-    if args[0] == "search" and args[1].startsWith("name:") and args[2].startsWith("mode:") and args[3].startsWith("limit:"):
+    if args[0] == "search" and args[1].startsWith("match:") and args[2].startsWith("mode:") and args[3].startsWith("limit:"):
       splitted = args[1].split(":")
       splitted2 = args[2].split(":")
       splitted3 = args[3].split(":")
@@ -429,7 +429,7 @@ proc arguments*(args: seq[string]) {.noreturn.} =
         except ValueError:
           ActionsProc.actions()
 
-    elif args[0] == "search" and args[1].startsWith("name:") and args[2].startsWith("mode:") and args[3].startsWith("write:"):
+    elif args[0] == "search" and args[1].startsWith("match:") and args[2].startsWith("mode:") and args[3].startsWith("write:"):
       splitted = args[1].split(":")
       splitted2 = args[2].split(":")
       splitted3 = args[3].split(":")
@@ -452,7 +452,7 @@ proc arguments*(args: seq[string]) {.noreturn.} =
       else:
         SearchProc.search(name = splitted[1], mode = splitted2[1], outfile = splitted3[1])
 
-    elif args[0] == "search" and args[1].startsWith("name:") and args[2].startsWith("limit:") and args[3].startsWith("write:"):
+    elif args[0] == "search" and args[1].startsWith("match:") and args[2].startsWith("limit:") and args[3].startsWith("write:"):
       splitted = args[1].split(":")
       splitted2 = args[2].split(":")
       splitted3 = args[3].split(":")
@@ -481,7 +481,7 @@ proc arguments*(args: seq[string]) {.noreturn.} =
         except ValueError:
           ActionsProc.actions()
 
-    if args[0].startsWith("search:") and args[1].startsWith("name:") and args[2].startsWith("mode:") and args[3].startsWith("limit:"):
+    if args[0].startsWith("search:") and args[1].startsWith("match:") and args[2].startsWith("mode:") and args[3].startsWith("limit:"):
       splitted = args[0].split(":")
       splitted2 = args[1].split(":")
       splitted3 = args[2].split(":")
@@ -517,7 +517,7 @@ proc arguments*(args: seq[string]) {.noreturn.} =
         except ValueError:
           ActionsProc.actions()
 
-    elif args[0].startsWith("search:") and args[1].startsWith("name:") and args[2].startsWith("mode:") and args[3].startsWith("write:"):
+    elif args[0].startsWith("search:") and args[1].startsWith("match:") and args[2].startsWith("mode:") and args[3].startsWith("write:"):
       splitted = args[0].split(":")
       splitted2 = args[1].split(":")
       splitted3 = args[2].split(":")
@@ -541,7 +541,7 @@ proc arguments*(args: seq[string]) {.noreturn.} =
       else:
         SearchProc.search(path = splitted[1], name = splitted2[1], mode = splitted3[1], outfile = splitted4[1])
 
-    elif args[0].startsWith("search:") and args[1].startsWith("name:") and args[2].startsWith("limit:") and args[3].startsWith("write:"):
+    elif args[0].startsWith("search:") and args[1].startsWith("match:") and args[2].startsWith("limit:") and args[3].startsWith("write:"):
       splitted = args[0].split(":")
       splitted2 = args[1].split(":")
       splitted3 = args[2].split(":")
@@ -575,7 +575,7 @@ proc arguments*(args: seq[string]) {.noreturn.} =
           ActionsProc.actions()
 
   elif args.len == 5:
-    if args[0] == "search" and args[1].startsWith("name:") and args[2].startsWith("mode:") and args[3].startsWith("limit:") and args[4].startsWith("write:"):
+    if args[0] == "search" and args[1].startsWith("match:") and args[2].startsWith("mode:") and args[3].startsWith("limit:") and args[4].startsWith("write:"):
       splitted = args[1].split(":")
       splitted2 = args[2].split(":")
       splitted3 = args[3].split(":")
@@ -612,7 +612,7 @@ proc arguments*(args: seq[string]) {.noreturn.} =
           ActionsProc.actions()
 
 
-    if args[0].startsWith("search:") and args[1].startsWith("name:") and args[2].startsWith("mode:") and args[3].startsWith("limit:") and args[4].startsWith("write:"):
+    if args[0].startsWith("search:") and args[1].startsWith("match:") and args[2].startsWith("mode:") and args[3].startsWith("limit:") and args[4].startsWith("write:"):
       splitted = args[0].split(":")
       splitted2 = args[1].split(":")
       splitted3 = args[2].split(":")
