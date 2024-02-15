@@ -13,7 +13,7 @@ Users can report vulnerabilities through email, social media, and GitHub.
 
 **Reddit**: ***https://www.reddit.com/user/sneekyfoxxx***
 
-**GitHub**: ***https://github.com/sneekyfoxx/issues***
+**GitHub**: ***https://github.com/sneekyfoxx/Superuser/issues***
 
 Each account is checked daily though, updates on reported vulnerabilities, if accepted, can be expected at least once a month depending on priority.
 
