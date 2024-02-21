@@ -306,7 +306,7 @@ proc arguments*(args: seq[string]) {.noreturn.} =
       elif splitted2.len < 2 or splitted2.len > 2:
         ActionsProc.actions()
 
-      elif splitted2[1] != "passive" xor splitted2[1] != "strict":
+      elif splitted2[1] != "passive" and splitted2[1] != "strict":
         ActionsProc.actions()
 
       else:
@@ -370,7 +370,7 @@ proc arguments*(args: seq[string]) {.noreturn.} =
       elif splitted3.len < 2 or splitted3.len > 2:
         ActionsProc.actions()
 
-      elif splitted3[1] != "passive" xor splitted3[1] != "strict":
+      elif splitted3[1] != "passive" and splitted3[1] != "strict":
         ActionsProc.actions()
 
       else:
@@ -411,7 +411,7 @@ proc arguments*(args: seq[string]) {.noreturn.} =
       elif splitted3.len < 2 or splitted3.len > 2:
         ActionsProc.actions()
 
-      elif splitted2[1] != "passive" xor splitted2[1] != "strict":
+      elif splitted2[1] != "passive" and splitted2[1] != "strict":
         ActionsProc.actions()
 
       else:
@@ -443,10 +443,7 @@ proc arguments*(args: seq[string]) {.noreturn.} =
       elif splitted3.len < 2 or splitted3.len > 2:
         ActionsProc.actions()
 
-      elif splitted4.len < 2 or splitted4.len > 2:
-        ActionsProc.actions()
-
-      elif splitted2[1] != "passive" xor splitted2[1] != "strict":
+      elif splitted2[1] != "passive" and splitted2[1] != "strict":
         ActionsProc.actions()
 
       else:
@@ -499,7 +496,7 @@ proc arguments*(args: seq[string]) {.noreturn.} =
       elif splitted4.len < 2 or splitted4.len > 2:
         ActionsProc.actions()
 
-      elif splitted3[1] != "passive" xor splitted3[1] != "strict":
+      elif splitted3[1] != "passive" and splitted3[1] != "strict":
         ActionsProc.actions()
 
       else:
@@ -535,7 +532,7 @@ proc arguments*(args: seq[string]) {.noreturn.} =
       elif splitted4.len < 2 or splitted4.len > 2:
         ActionsProc.actions()
 
-      elif splitted3[1] != "passive" xor splitted3[1] != "strict":
+      elif splitted3[1] != "passive" and splitted3[1] != "strict":
         ActionsProc.actions()
 
       else:
@@ -593,7 +590,7 @@ proc arguments*(args: seq[string]) {.noreturn.} =
       elif splitted4.len < 2 or splitted4.len > 2:
         ActionsProc.actions()
 
-      elif splitted2[1] != "passive" xor splitted2[1] != "strict":
+      elif splitted2[1] != "passive" and splitted2[1] != "strict":
         ActionsProc.actions()
 
       else:
@@ -634,7 +631,7 @@ proc arguments*(args: seq[string]) {.noreturn.} =
       elif splitted5.len < 2 or splitted5.len > 2:
         ActionsProc.actions()
 
-      elif splitted3[1] != "passive" xor splitted3[1] != "strict":
+      elif splitted3[1] != "passive" and splitted3[1] != "strict":
         ActionsProc.actions()
 
       else:
