@@ -2,8 +2,8 @@
 
 install_nim() {
   curl https://nim-lang.org/choosenim/init.sh -sSf | sh;
-  choosenim --stable;
   export PATH="${PATH}:${HOME}/.nimble/bin";
+  choosenim --stable;
 }
 
 install_nim;
