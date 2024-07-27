@@ -176,7 +176,7 @@ __main() {
   local hasmusl=0;
 
   if [ "$system" == "Linux" ] && [ "$arch" == "x86_64" ]; then
-    if ( which nim &>/dev/null ); then
+    if [ -f "${HOME}/.nimble/bin/nim" ]; then
       hasnim=1;
 
     else
@@ -184,7 +184,7 @@ __main() {
       return 1;
     fi;
 
-    if ( which musl-gcc &>/dev/null ); then
+    if [ -f "/usr/bin/musl-gcc" ]; then
       hasmusl=1;
 
     else
