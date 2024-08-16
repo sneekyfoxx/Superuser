@@ -52,6 +52,10 @@ __build() {
   local arg4="--assertions:off --forceBuild:on --out:superuser compile ./src/Main.nim";
   local arg5="$arg1 $arg2 $arg3 $arg4";
 
+  if [ ! -d "./bin" ]; then
+    ( mkdir "./bin" );
+  fi
+
   if [ -f "./bin/superuser" ]; then
     echo -e "\n\e[1;33m$current_dir/superuser already exists.\e[0m \e[1;37mRemoving...\e[0m";
     sleep 2;
