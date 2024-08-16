@@ -13,11 +13,11 @@
 
 **Superuser** is meant to be a *multi-purpose* tool and combines the functionality of *five* fundamental Linux tools such as **cat**, **echo**, **find**, **ls**, and **touch**.
 
-Each tool that is a part of **Superuser** are ***custom versions*** of the originals and may not have the same name or function (*exactly*) the same.
+Each tool that is a part of **Superuser** are ***custom versions*** of the originals and may not have the same name or have their exact functionality.
 
 # Platforms
 
-**Superuser** was only tested on ***Archcraft x86_64 Linux 6.6.9-arch1-1*** but should work on any x86_64 Linux or MacOS machine.
+**Superuser** was only tested on ***Archcraft x86_64 Linux 6.10.4-arch2-1*** but should work on any x86_64 Linux or MacOS machine.
 
 As for **Windows**, I'm unsure about how to build the binary using **Nim**, so it may take some extra work.
 
@@ -28,6 +28,8 @@ As for **Windows**, I'm unsure about how to build the binary using **Nim**, so i
 **website**: [https://nim-lang.org/install_unix.html](https://nim-lang.org/install_unix.html)
 
 **github**: (*Recommended*) [https://github.com/dom96/choosenim](https://github.com/dom96/choosenim)
+
+**install script**: in the *Superuser* directory run the **install-nim.sh** install script.
 
 ## musl-gcc
 
@@ -52,7 +54,7 @@ $ nim --gcc.exe:musl-gcc --linker.exe:musl-gcc --passL:-static --threads:on --op
 $ mv ./superuser your/location/of/choice
 ```
 
-When moving the binary file, make sure the chosen location is on your **PATH**.
+When moving the **superuser** binary file, make sure the chosen location is on your **PATH**.
 
 You can also use **upx** or any other binary compression program to reduce the file size.
 
@@ -63,7 +65,6 @@ You can also use **upx** or any other binary compression program to reduce the f
 ```
 $ choosenim update stable
 $ git clone https://github.com/sneekyfoxx/Superuser ~/ && cd ~/Superuser
-$ mkdir ./bin/
 $ ./build.sh
 ```
 
@@ -72,7 +73,6 @@ $ ./build.sh
 ```
 $ choosenim update stable
 $ git clone https://github.com/sneekyfoxx/Superuser ~/ && cd ~/Superuser
-$ mkdir ./bin/
 $ ./build.sh -c
 ```
 
