@@ -7,7 +7,7 @@
     
                     🔋🔧 A simple, yet powerful tool in the hands of any user      
 
-![Superuser-Video-08-16-2024](https://github.com/user-attachments/assets/e594817b-4f39-4efc-838d-27bb80ca7282)
+https://github.com/user-attachments/assets/11137881-7155-479f-9559-3adb67753e85
 
 # About
 
