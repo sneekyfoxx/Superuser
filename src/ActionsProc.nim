@@ -32,7 +32,7 @@ proc actions* {.noreturn.} =
   stdout.write("\n{green}Action\t\t\t\tDescription{reset}\n‾‾‾‾‾‾\t\t\t\t‾‾‾‾‾‾‾‾‾‾‾\n".fmt)
   stdout.flushFile()
 
-  stdout.write(" {cyan}actions{reset}\t\t\t {yellow}show info for all{reset} {magenta}superuser{reset} {yellow}actions{reset}\n".fmt)
+  stdout.write(" {cyan}actions{reset}\t\t\t {yellow}show info for all{reset} {magenta}superuser{reset} {cyan}actions{reset}\n".fmt)
   stdout.flushFile()
 
   stdout.write("\n {cyan}echo{reset}:{green}text{reset}\t\t\t {yellow}output{reset} '{green}text{reset}' ".fmt)
@@ -52,7 +52,7 @@ proc actions* {.noreturn.} =
   stdout.write("'{green}directory{reset}' ({red}default is{reset} '{green}./{reset}')\n".fmt)
   stdout.flushFile()
 
-  stdout.write("\n {cyan}info{reset}:{green}entry{reset}\t\t\t {yellow}get information on a {reset}{blue}File{reset} ".fmt)
+  stdout.write("\n {cyan}info{reset}:{green}entry{reset}\t\t\t {yellow}get information about a {reset}{blue}File{reset} ".fmt)
   stdout.write("{yellow}or{reset} {blue}Directory{reset} '{green}entry{reset}'\n".fmt)
   stdout.flushFile()
 
@@ -83,7 +83,7 @@ proc actions* {.noreturn.} =
   stdout.write("{yellow}to{reset} '{magenta}stdout{reset}'\n".fmt)
   stdout.flushFile()
 
-  stdout.write("\n {cyan}usage{reset}\t\t\t\t {yellow}show command line positions/usage for any{reset} {cyan}action{reset}\n".fmt)
+  stdout.write("\n {cyan}usage{reset}\t\t\t\t {yellow}show command line patterns for all{reset} {magenta}superuser{reset} {cyan}actions{reset}\n".fmt)
   stdout.flushFile()
 
   quit(0)
