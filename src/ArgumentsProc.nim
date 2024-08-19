@@ -242,7 +242,7 @@ proc arguments*(args: seq[string]) {.noreturn.} =
 
     elif args[0].startsWith("open:") and args[1].startsWith("write:"):
       splitted = args[0].split(":")
-      splitted = args[1].split(":")
+      splitted2 = args[1].split(":")
 
       if splitted.len < 2 or splitted.len > 2:
          ActionsProc.actions()
