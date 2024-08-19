@@ -37,7 +37,7 @@ proc actions* {.noreturn.} =
 
   stdout.write("\n {cyan}echo{reset}:{green}text{reset}\t\t\t {yellow}output{reset} '{green}text{reset}' ".fmt)
   stdout.write("({red}default is{reset} '{green}stdout{reset}')\n".fmt)
-  stdout.write("     {cyan}write{reset}:{green}text{reset}\t\t\t {yellow}write{reset} '{green}text{reset}' {yellow}to{reset} '{green}file{reset}' ".fmt)
+  stdout.write("     {cyan}write{reset}:{green}file{reset}\t\t\t {yellow}write{reset} '{green}text{reset}' {yellow}to{reset} '{green}file{reset}' ".fmt)
   stdout.write("({red}overwrites file contents{reset})\n".fmt)
   stdout.flushFile()
 
