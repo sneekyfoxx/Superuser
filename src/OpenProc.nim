@@ -36,7 +36,7 @@ proc open*(open: string = "", read: string = "", outfile: string = "", append: s
       quit(1)
 
     elif fileExists(expandTilde(open)):
-      newfile = open(expandTilde(open), fmappend)
+      newfile = open(expandTilde(open), fmAppend)
       newfile.write(ReplaceProc.replace(append))
       newfile.close()
       quit(0)
