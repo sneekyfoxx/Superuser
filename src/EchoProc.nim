@@ -34,7 +34,7 @@ proc echo*(text: string = "", write: string = "") {.noreturn.} =
       quit(0)
 
     else:
-      newfile = open(expandTilde(write), fmwrite)
+      newfile = open(expandTilde(write), fmWrite)
       newfile.write(ReplaceProc.replace(text))
       newfile.close()
       quit(0)
