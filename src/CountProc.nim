@@ -30,25 +30,28 @@ proc count*(directory: string = getCurrentDir()) {.noreturn.} =
   stdout.hideCursor()
 
   for entry in walkDirRec(expandTilde(directory), yieldFilter={pcFile, pcDir, pcLinkToFile, pcLinkToDir}, followFilter={pcDir}, relative = false, checkdir = false):
-    var entryinfo: FileInfo = getFileInfo(expandTilde(entry), followSymlink=false) 
-    
-    stdout.writeLine("{yellow}Counting Entries in {reset}'{blue}{directory}{reset}': {cyan}{intToStr(totalcounter)}{reset}".fmt)
-    cursorUp(1)
-    eraseLine()
-    
-    if entryinfo.kind == pcFile and entryinfo.kind != pcLinkToFile:
-      filecounter.inc()
+    try:
+      var entryinfo: FileInfo = getFileInfo(expandTilde(entry), followSymlink=false)
+      
+      stdout.writeLine("{yellow}Counting Entries in {reset}'{blue}{directory}{reset}': {cyan}{intToStr(totalcounter)}{reset}".fmt)
+      cursorUp(1)
+      eraseLine()
+      
+      if entryinfo.kind == pcFile and entryinfo.kind != pcLinkToFile:
+        filecounter.inc()
 
-    elif entryinfo.kind != pcFile and entryinfo.kind == pcLinkToFile:
-      filelinkcounter.inc()
+      elif entryinfo.kind != pcFile and entryinfo.kind == pcLinkToFile:
+        filelinkcounter.inc()
 
-    elif entryinfo.kind == pcDir and entryinfo.kind != pcLinkToDir:
-      dircounter.inc()
+      elif entryinfo.kind == pcDir and entryinfo.kind != pcLinkToDir:
+        dircounter.inc()
 
-    elif entryinfo.kind != pcDir and entryinfo.kind == pcLinkToDir:
-      dirlinkcounter.inc()
-    
-    totalcounter.inc()
+      elif entryinfo.kind != pcDir and entryinfo.kind == pcLinkToDir:
+        dirlinkcounter.inc()
+
+      totalcounter.inc()
+    except OSError:
+      continue
 
   cursorUp(1)
   eraseLine()
